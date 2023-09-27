@@ -24,5 +24,15 @@ services:
     user: "${UID}:${GID}" # echo "UID=$(id -u)" >> .env && echo "GID=$(id -g)" >> .env
     tty: true
     stdin_open: true
+  next:
+      build:
+        dockerfile: ./next/Dockerfile
+      tty: true
+      stdin_open: true
+      volumes:
+        - ./next:/app
+      ports:
+        - "8000:3000"
+      user: "${UID}:${GID}"
 volumes:
   mysql_data:
