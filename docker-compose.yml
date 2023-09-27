@@ -21,6 +21,7 @@ services:
       - 3000:3000
     depends_on:
       - db
+    user: "${UID}:${GID}" # echo "UID=$(id -u)" >> .env && echo "GID=$(id -g)" >> .env
     tty: true
     stdin_open: true
 volumes:
